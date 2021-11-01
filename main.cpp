@@ -1,10 +1,9 @@
 #include <iostream>
 #include <string>
 
-std::string check(std::string a, std::string b, std::string c, std::string d) {
+int check(int a, int b, int c, int d) {
     bool good = true;
-    if ((a.length() > 3 || b.length() > 3 || c.length() > 3 || d.length() > 3) ||
-            (a.length() < 1 || b.length() < 1 || c.length() < 1 || d.length() < 1)){
+    if ((a < 0 || b < 0 || c < 0 || d < 0) || (a > 255 || b > 255 || c > 255 || d > 255)) {
         good = false;
     }
 }
