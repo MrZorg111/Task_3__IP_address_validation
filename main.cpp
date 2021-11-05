@@ -1,12 +1,45 @@
 #include <iostream>
 #include <string>
 
-int check(int a, int b, int c, int d) {
+std::string chek_1 (std::string a) {
     bool good = true;
-    if ((a < 0 || b < 0 || c < 0 || d < 0) || (a > 255 || b > 255 || c > 255 || d > 255)) {
+    char c_a;
+    if (a.length() < 1 || a.length() > 3) {
         good = false;
     }
+    for (int i = 0; i < a.length(); i++) {
+        c_a = a[i];
+        if (c_a < 48 || c_a > 57) {
+            good = false;
+            break;
+        }
+    }
+    if(a.length() == 3 && good){
+        if(a[0] == '0' || a[0] > '2') {
+            good = false;
+            }
+        else if(a[0] == '2' && a[1] > '5') {
+            good = false;
+            }
+        else if(a[0] == '2' && a[1] == '5' && a[2] > '5') {
+            good = false;
+            }
+        else if((a[0] == '0' && a[1] == '0' && a[2] == '0') || (a[0] == '0' && a[1] == '0')) {
+            good = false;
+        }
+    }
+    if(a.length() == 2 && good) {
+        if((a[0] == '0' && a[1] == '0') || (a[0] == '0')) {
+            good = false;
+        }
+    }
+    if(good) {
+        return "Yes!";
+    }else {
+        return "No!";
+    }
 }
+
 
 int main() {
 
@@ -40,5 +73,4 @@ int main() {
         ip_4 += ip_address[l];
         }
 
-    std::cout << check(ip_1, ip_2, ip_3, ip_4);
-}
+    }
