@@ -180,7 +180,6 @@ int main() {
 
     std::string ip_address, ip_1, ip_2, ip_3, ip_4;
     int i, t, j, l;
-    char c;
     std::cout << "Enter ip-address:\n";
     std::cin >> ip_address;
 
@@ -208,8 +207,8 @@ int main() {
         }
         ip_4 += ip_address[l];
     }
-    c = ip_address[l] + 1;
-    if (c > 0) {
+
+    if (ip_address[l] == '.') {
         std::cout << "No!";
     } else {
         std::cout << chek_total(ip_1, ip_2, ip_3, ip_4);
